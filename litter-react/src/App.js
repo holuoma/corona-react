@@ -1,4 +1,6 @@
 import React, {useState, useEffect} from 'react';
+import Sidebar from "./Components/Sidebar";
+import MainMessages from "./Components/MainMessages";
 import './App.css';
 
 const usersData = [
@@ -25,12 +27,18 @@ const usersData = [
 ]
 
 function App() {
-const [users, setUsers] = useState({})
-const [messages, setMessages] = useState({})
+const [data, setData] = useState([])
+
+useEffect(() => {
+  setData(usersData)
+}, [])
+console.log(data)
+
 
   return (
-    <div className="App">
-      <h2>LITTER</h2>
+    <div className="App d-flex">
+      <Sidebar />
+      <MainMessages data={data} />
     </div>
   );
 }
