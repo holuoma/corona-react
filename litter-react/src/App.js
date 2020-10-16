@@ -4,6 +4,8 @@ import MainMessages from "./Components/MainMessages";
 import DetailPage from "./Components/DetailPage";
 import { Route } from "react-router-dom";
 import './App.css';
+import SearchBar from "./Components/SearchBar";
+
 
 
 function App() {
@@ -22,13 +24,22 @@ useEffect(() => {
 console.log("DATA", data)
 
 
+
+
+
   return (
+
+    <>
+    <SearchBar/>
     <div className="App d-flex">
+      
       <Route exact path="/"><Sidebar /></Route>
       <Route exact path="/" render={(props) => <MainMessages data={data} {...props} />}/>
 
       {/* <Route path="/detail/:id?" render={(props) => <DetailPage data={data} {...props} />}/> */}
     </div>
+
+    </>
   );
 }
 
