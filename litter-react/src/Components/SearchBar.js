@@ -1,4 +1,5 @@
 
+
 import React, {useState, useEffect} from 'react';
 import './App.css';
 
@@ -68,7 +69,6 @@ const [searchResult, setSearchResults] = useState("");
 }
 
 export default SearchBar;
-
 
 
 
