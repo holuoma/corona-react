@@ -4,7 +4,7 @@ import MainMessages from "./Components/MainMessages";
 import DetailPage from "./Components/DetailPage";
 import { Route } from "react-router-dom";
 import './App.css';
-import SearchBar from './Components/SearchBar';
+//import SearchBar from './Components/SearchBar';
 
 
 // /messages                    -> GET all messages (SELECT)
@@ -13,6 +13,7 @@ import SearchBar from './Components/SearchBar';
 // /users                         - > GET all users (SELECT)
 // /users/:id                   -> GET specific user by ID (const {id} = req.params)
 // /me                              -> GET give random user
+
 
 
 function App() {
@@ -42,13 +43,22 @@ useEffect(() => {
 console.log("DATA", messages)
 
 
+
+
+
   return (
+
+    <>
+    <SearchBar/>
     <div className="App d-flex">
       <Route exact path="/" render={(props) => <Sidebar me={me} {...props} />}/>
       <Route exact path="/" render={(props) => <MainMessages messages={messages} data={data} {...props} />}/>
-      <Route exact path="/" component={SearchBar} />
       <Route path="/detail/:id?" render={(props) => <DetailPage {...props} />}/>
+      
+
     </div>
+
+    </>
   );
 }
 

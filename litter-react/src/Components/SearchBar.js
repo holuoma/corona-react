@@ -1,22 +1,87 @@
-import React from 'react'
 
-export default function SearchBar() {
-    return (
 
-        <div className="col-sm-2 bg-dark border-right">
-            <div className="list-group list-group-flush mt-3">
-                 
-            <nav className="navbar">
-                <form className="form-inline">
-                    <input className="form-control mr-sm-2 mb-2" type="search" placeholder="Search" aria-label="Search" />
-                    <button className="btn btn-primary" type="submit">Search</button>
-                </form>
-            </nav>
+import React, {useState, useEffect} from 'react';
+import './App.css';
 
-            </div>
-        </div>
-        
 
-        
-    )
+function SearchBar() {
+const [users, setUsers] = useState({})
+const [messages, setMessages] = useState({})
+
+// ---please modify if necessary
+const [loading, setLoading] = useState(false);
+const [userInput, setUserInput] = useState("");
+const [searchResult, setSearchResults] = useState("");
+
+       
+        //---user inputs-----
+        const handleUserInput = (e) => {
+              //  console.log(e.target.value);
+               setUserInput(e.target.value);
+           };
+      
+        //  ---handle user inputs with enter key
+
+         const handleEnter = (e) => {
+             if (e.key === "Enter") {
+               search();
+            }
+            // console.log('clicked')
+          };
+
+         const handleClick = (e) =>  { 
+            e.preventDefault();
+            // console.log('clicked')
+             search();
+
+
+          }
+           //----handle search
+          const search = () =>   { 
+              //---logic based on what the user inputs 
+              console.log('searched') 
+
+          }
+
+         
+           //----call back to handle errors if any during the api call
+              //  const displayError = () => {
+              //  alert("sorry we have problem completing your litter request");
+            // };
+
+
+  return (
+
+       <>
+
+          {/* search field */}
+
+          <div className="App">
+                    <h2>LITTER</h2>
+            <div className="search">
+               <input onChange={handleUserInput} onKeyDown={handleEnter} type="text" />
+               <button  onClick={handleClick}
+               >Search litter</button>
+          </div>
+          </div>
+       </>
+  );
 }
+
+export default SearchBar;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
